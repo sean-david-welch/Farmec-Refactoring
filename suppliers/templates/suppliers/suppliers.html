@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for supplier in suppliers %}
+<h1>{{ supplier.name }}</h1>
+<p>{{ supplier.description }}</p>
+<a href="{% url 'supplier' pk=supplier.id %}">Learn More</a>
+{% endfor %}
+<ul>
+    <a href="{% url 'create_model_supplier' model_name='supplier' %}">Create Supplier</a>
+    <a href="{% url 'create_model_supplier' model_name='machine' %}">Create Machine</a>
+    <a href="{% url 'create_model_supplier' model_name='product' %}">Create Product</a>
+    <a href="{% url 'create_model_supplier' model_name='video' %}">Create Video</a>
+</ul>
+
+{% endblock content %}

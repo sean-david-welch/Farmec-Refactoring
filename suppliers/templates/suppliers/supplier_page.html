@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>{{supplier.name}}</h1>
+<p>{{supplier.description}}</p>
+<a href="{% url 'edit_model_supplier' model_name='supplier' pk=supplier.id %}">Edit Supplier</a>
+<a href="{% url 'delete_model_supplier' model_name='supplier' pk=supplier.id %}">Delete Supplier</a>
+
+
+{% endblock content %}
