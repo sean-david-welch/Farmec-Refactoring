@@ -4,7 +4,7 @@ import uuid
 # Create your models here.
 class SupplierPage(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
-    logo_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
+    logo_image = models.ImageField(null=True, blank=True, upload_to='images/spareparts/', default="images/default.jpg")
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
@@ -28,7 +28,7 @@ class PartsPage(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     catalogue_link = models.URLField(max_length=200, blank=True, null=True)
     file_link = models.FileField(upload_to='pdf/', null=True, blank=True)
-    marketing_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
+    marketing_image = models.ImageField(null=True, blank=True, upload_to='images/spareparts/', default="images/default.jpg")
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)

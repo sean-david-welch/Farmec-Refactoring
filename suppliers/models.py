@@ -4,8 +4,8 @@ import uuid
 # Create your models here.
 class Supplier(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
-    logo_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers', default="images/default.jpg")
-    marketing_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers', default="images/default.jpg")
+    logo_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers/', default="images/default.jpg")
+    marketing_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers/', default="images/default.jpg")
     description = models.TextField(blank=True, null=True)
     facts = models.TextField(blank=True, null=True)
     social_facebook = models.CharField(max_length=200, blank=True, null=True)
@@ -60,7 +60,7 @@ class Video(models.Model):
 class Machine(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
-    machine_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers/machines', default="images/default.jpg")
+    machine_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers/machines/', default="images/default.jpg")
     description = models.TextField(blank=True, null=True)
     machine_link = models.URLField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -84,7 +84,7 @@ class Machine(models.Model):
 class Product(models.Model):
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
-    product_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers/products', default="images/default.jpg")
+    product_image = models.ImageField(null=True, blank=True, upload_to='images/suppliers/products/', default="images/default.jpg")
     description = models.TextField(blank=True, null=True)
     product_link = models.URLField(max_length=200, blank=True, null=True)
     serial_number = models.CharField(max_length=200, blank=True, null=True)
