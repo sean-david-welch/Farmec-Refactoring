@@ -19,6 +19,10 @@ forms = {
     'video': VideoForm,
 }
 
+########################################################
+#################### Supplier Views ####################
+########################################################
+
 def suppliers(request):
     suppliers = Supplier.objects.all()
 
@@ -30,6 +34,10 @@ def supplier_page(request, pk):
 
     context={'supplier': supplier}
     return render(request, 'suppliers/supplier_page.html', context)
+
+########################################################
+################# Supplier Models C.R.U.D. #############
+########################################################
 
 def create_model_supplier(request, model_name):
     form_class = forms[model_name]

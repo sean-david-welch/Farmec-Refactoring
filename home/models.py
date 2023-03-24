@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 import uuid
 
 class HomeImage(models.Model):
-    image = models.ImageField(upload_to='images/displays/home', blank=True, null=True)
+    image = models.ImageField(upload_to='displays/home', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
@@ -35,7 +35,7 @@ class Profile(models.Model):
 
 class Stat(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
-    image = models.FileField(upload_to='images/displays/stats', blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['svg'])])
+    image = models.FileField(upload_to='displays/stats', blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['svg'])])
     subheading = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
@@ -56,7 +56,7 @@ class Stat(models.Model):
         return url
 
 class Special(models.Model):
-    image = models.FileField(upload_to='images/displays/specials', blank=True, null=True, default="default.jpg", validators=[FileExtensionValidator(allowed_extensions=['svg'])])
+    image = models.FileField(upload_to='displays/specials', blank=True, null=True, default="default.jpg", validators=[FileExtensionValidator(allowed_extensions=['svg'])])
     title = models.CharField(max_length=200, blank=True, null=True)
     body = models.TextField(blank=True, null=True)
     link = models.CharField(max_length=200, null=True, blank=True)

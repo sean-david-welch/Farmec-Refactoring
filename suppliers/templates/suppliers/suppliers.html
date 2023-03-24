@@ -1,17 +1,34 @@
 {% extends 'main.html' %}
+{% load social_buttons %}
 
 {% block content %}
 
-{% for supplier in suppliers %}
-<h1>{{ supplier.name }}</h1>
-<p>{{ supplier.description }}</p>
-<a href="{% url 'supplier' pk=supplier.id %}">Learn More</a>
-{% endfor %}
-<ul>
+<section id="suppliers">
+    <div class="index">
+        <h1>Index: </h1>
+    </div>
+
+    {% for supplier in suppliers %}
+    <div class="supplier-view">
+        <div class="supplier-info">
+            <img src="{{supplier.logo_imageurl}}" alt="">
+            <div class="supplier-socials">
+
+            </div>
+            <button class="supplier-link">
+                <a href="{% url 'supplier' supplier.id %}">learn more</a>
+            </button>
+        </div>
+        <img class="supplier-marketing-image" src="{{supplier.marketing_imageurl}}" alt="">
+        <div class="supplier-description">
+            <p>{{ supplier.description|linebreaks }}</p>
+            <p>{{ supplier.facts|linebreaks }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
     <a href="{% url 'create_model_supplier' model_name='supplier' %}">Create Supplier</a>
-    <a href="{% url 'create_model_supplier' model_name='machine' %}">Create Machine</a>
-    <a href="{% url 'create_model_supplier' model_name='product' %}">Create Product</a>
-    <a href="{% url 'create_model_supplier' model_name='video' %}">Create Video</a>
-</ul>
+</section>
+
 
 {% endblock content %}
